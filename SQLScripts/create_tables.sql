@@ -1,0 +1,35 @@
+CREATE TABLE prescriptions(
+id SERIAL PRIMARY KEY,
+date_upd DATE,
+division_area VARCHAR(50),
+division_settlement_type VARCHAR(50),
+division_settlement VARCHAR(70),
+division_settlement_koatuu VARCHAR(50),
+legal_entity_id uuid DEFAULT gen_random_uuid(),
+division_id uuid DEFAULT gen_random_uuid(),
+innms_groups VARCHAR(100),
+date_period VARCHAR (10),
+count_prescription BIGINT);
+
+
+CREATE TABLE pharmacies(
+id SERIAL PRIMARY KEY,
+legal_entity_id uuid DEFAULT gen_random_uuid(),
+legal_entity_edrpou TEXT,
+legal_entity_inserted_at DATE,
+legal_entity_property_type TEXT,
+legal_entity_name TEXT,
+legal_entity_registration_adderesses TEXT,
+division_id uuid DEFAULT gen_random_uuid(),
+division_name TEXT,
+division_type TEXT,
+division_phone TEXT,
+division_area VARCHAR(50),
+division_settlement VARCHAR(70),
+division_settlement_type VARCHAR(50),
+division_addresses  VARCHAR(200),
+division_settlement_koatuu VARCHAR(50),
+location TEXT,
+lng VARCHAR(20),
+lat VARCHAR(20),
+medical_programs_in_divisions TEXT[] );
